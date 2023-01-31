@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>顶部导航栏</title>
+    <link th:href="@{/static/css/common.css}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="topblock">
+        <div>
+            <button class="unblock-btn" style="position: absolute;right:0px;" th:text="${user.username}" onclick="userinfo()">yonghu</button>
+        </div>
+    </div>
+    <div id="userlist" style="visibility: hidden">
+        <ul>
+            <li>
+                <button>用户信息</button>
+            </li>
+        </ul>
+    </div>
+<script>
+    function userinfo() {
+        console.log(document.getElementById("userlist").style.visibility == "hidden")
+        if(document.getElementById("userlist").style.visibility == "hidden"){
+            document.getElementById("userlist").style.visibility = "visible";
+        }else{
+            document.getElementById("userlist").style.visibility = "hidden";
+        }
+    }
+</script>
+</body>
+</html>
