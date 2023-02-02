@@ -185,31 +185,31 @@
 				</configuration>
 				<version>2.5.6</version>
 			</plugin>
-			<plugin>
-				<groupId>org.springframework.experimental</groupId>
-				<artifactId>spring-aot-maven-plugin</artifactId>
-				<version>0.10.4</version>
-				<configuration>
-					<removeSpelSupport>true</removeSpelSupport>
-					<removeUnusedConfig>true</removeUnusedConfig>
-					<removeYamlSupport>true</removeYamlSupport>
-					<removeXmlSupport>false</removeXmlSupport>
-				</configuration>
-				<executions>
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.experimental</groupId>-->
+<!--				<artifactId>spring-aot-maven-plugin</artifactId>-->
+<!--				<version>0.10.4</version>-->
+<!--				<configuration>-->
+<!--					<removeSpelSupport>true</removeSpelSupport>-->
+<!--					<removeUnusedConfig>true</removeUnusedConfig>-->
+<!--					<removeYamlSupport>true</removeYamlSupport>-->
+<!--					<removeXmlSupport>false</removeXmlSupport>-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--&lt;!&ndash;					<execution>&ndash;&gt;-->
+<!--&lt;!&ndash;						<id>test-generate</id>&ndash;&gt;-->
+<!--&lt;!&ndash;						<goals>&ndash;&gt;-->
+<!--&lt;!&ndash;							<goal>test-generate</goal>&ndash;&gt;-->
+<!--&lt;!&ndash;						</goals>&ndash;&gt;-->
+<!--&lt;!&ndash;					</execution>&ndash;&gt;-->
 <!--					<execution>-->
-<!--						<id>test-generate</id>-->
+<!--						<id>generate</id>-->
 <!--						<goals>-->
-<!--							<goal>test-generate</goal>-->
+<!--							<goal>generate</goal>-->
 <!--						</goals>-->
 <!--					</execution>-->
-					<execution>
-						<id>generate</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!--				</executions>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>org.hibernate.orm.tooling</groupId>
 				<artifactId>hibernate-enhance-maven-plugin</artifactId>
