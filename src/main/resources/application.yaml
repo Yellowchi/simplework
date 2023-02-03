@@ -1,8 +1,8 @@
 spring:
   datasource:
-    username: root # #老数据库：simplework #新数据库：simplework_new
-    password: mysqladmin # #老数据库密码：BRrzyWTzRjR4yc6Y #新数据库密码：53znyPcpNiEJJHAi
-    url: jdbc:mysql://localhost:3306/simplework?characterEncoding = utf-8
+    username: simplework_new #root #老数据库：simplework #新数据库：
+    password: 53znyPcpNiEJJHAi #mysqladmin #老数据库密码：BRrzyWTzRjR4yc6Y #新数据库密码：
+    url: jdbc:mysql://1.116.108.109:3306/simplework_new?characterEncoding = utf-8
   thymeleaf:
     mode: HTML5
     prefix: classpath:/templates/
