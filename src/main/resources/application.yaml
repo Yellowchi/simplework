@@ -25,3 +25,5 @@ spring:
   web:
     resources:
       static-locations:
+swagger:
+  enable:true

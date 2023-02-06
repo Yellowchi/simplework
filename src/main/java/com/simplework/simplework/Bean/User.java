@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @ToString
 @Entity
 @Component
-public class Test {
+public class User {
     @Id
     private String user;
     private String password;

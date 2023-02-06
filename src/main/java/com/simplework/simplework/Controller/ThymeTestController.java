@@ -1,9 +1,9 @@
 package com.simplework.simplework.Controller;
 
 import com.simplework.simplework.Bean.Stuinfo;
-import com.simplework.simplework.Bean.Test;
+import com.simplework.simplework.Bean.User;
 import com.simplework.simplework.Repository.StuinfoRepository;
-import com.simplework.simplework.Repository.TestRepository;
+import com.simplework.simplework.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.ui.Model;
@@ -18,16 +18,16 @@ import java.util.List;
 @EnableAutoConfiguration
 public class ThymeTestController {
     @Autowired
-    private TestRepository testRepository;
+    private UserRepository userRepository;
     @GetMapping()
     public String enter(){
         return "main";
     }
     @GetMapping("/test")
     public String test(Model model){
-        List<Test> test;
-        test = testRepository.findAll();
-        model.addAttribute("test",test);
+        List<User> users;
+        users = userRepository.findAll();
+        model.addAttribute("test",users);
         return "main";
     }
     @Autowired
