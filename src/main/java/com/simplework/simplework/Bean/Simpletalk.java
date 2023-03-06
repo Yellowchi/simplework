@@ -21,8 +21,8 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 
 public class Simpletalk {
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int simpletalkid;
     private String simpletalkname;
     @CreatedBy

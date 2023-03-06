@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface BussinfoMapper extends BaseMapper {
+public interface BussinfoMapper extends BaseMapper<Bussinfo> {
     @Select("select * from bussinfo where bussid = #{bussid}")
     @Results({
             @Result(column = "bussid",property = "bussid"),

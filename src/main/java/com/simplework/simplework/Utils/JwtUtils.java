@@ -14,7 +14,7 @@ public class JwtUtils {
     public static String generateToken(String username){
         Date now = new Date();
         Date expiration = new Date(now.getTime() + 1000 * expire);
-        return Jwts.builder().setHeaderParam("type","JWT").setSubject(username).setIssuedAt(now).setExpiration(expiration).signWith(SignatureAlgorithm.ES512,secret).compact();
+        return Jwts.builder().setHeaderParam("type","JWT").setSubject(username).setIssuedAt(now).setExpiration(expiration).signWith(SignatureAlgorithm.HS512,secret).compact();
     }
 
     public static Claims getClaimsByToken(String token){

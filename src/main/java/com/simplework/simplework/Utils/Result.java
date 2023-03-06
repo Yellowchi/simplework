@@ -62,6 +62,22 @@ public class Result {
         return r;
     }
 
+    public static Result paserror(){
+        Result r = new Result();
+        r.setSuccess(false);
+        r.setCode(ResultCode.ERROR);
+        r.setMessage("密码错误");
+        return r;
+    }
+
+    public static Result usererror(){
+        Result r = new Result();
+        r.setSuccess(false);
+        r.setCode(ResultCode.ERROR);
+        r.setMessage("用户不存在");
+        return r;
+    }
+
     public Result data(String key,Object value) {
         this.data.put(key,value);
         return this;

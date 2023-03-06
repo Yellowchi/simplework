@@ -27,3 +27,5 @@ spring:
       static-locations:
 swagger:
   enable:true
+mybatis-plus:
+    mapper-locations: classpath:mybatis/**/*Mapper.xml
