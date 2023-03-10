@@ -24,4 +24,7 @@ public interface BussinfoMapper extends BaseMapper<Bussinfo> {
             many = @Many(select = "com.simplework.simplework.Mapper.JobMapper.selectbybussid"))
     })
     List<Bussinfo> selectbussinfobybussidandjobs(String bussid);
+
+    @Select("delete from bussinfo where bussid = #{bussid}")
+    public void deletebybussid(String bussid);
 }

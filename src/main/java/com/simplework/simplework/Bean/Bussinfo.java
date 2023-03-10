@@ -31,7 +31,6 @@ public class Bussinfo {
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createdate;
-
     @OneToMany
     @TableField(exist = false)
     private List<Job> jobs;

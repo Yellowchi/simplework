@@ -1,16 +1,20 @@
 package com.simplework.simplework.Utils;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Result {
+public class Result implements Serializable {
+
     private boolean success;
 
-    private Integer code;
+    private int code;
 
-    private String message;
+    private String msg;
 
     private Map<String,Object> data = new HashMap<>();
+
+    private long timestamp;
 
     public boolean isSuccess() {
         return success;
@@ -20,20 +24,20 @@ public class Result {
         this.success = success;
     }
 
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Map<String, Object> getData() {
@@ -44,13 +48,23 @@ public class Result {
         this.data = data;
     }
 
-    private Result(){}
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    private Result(){
+        timestamp = System.currentTimeMillis();
+    }
 
     public static Result ok(){
         Result r = new Result();
         r.setSuccess(true);
         r.setCode(ResultCode.SUCCESS);
-        r.setMessage("成功");
+        r.setMsg("成功");
         return r;
     }
 
@@ -58,7 +72,7 @@ public class Result {
         Result r = new Result();
         r.setSuccess(false);
         r.setCode(ResultCode.ERROR);
-        r.setMessage("失败");
+        r.setMsg("失败");
         return r;
     }
 
@@ -66,7 +80,7 @@ public class Result {
         Result r = new Result();
         r.setSuccess(false);
         r.setCode(ResultCode.ERROR);
-        r.setMessage("密码错误");
+        r.setMsg("密码错误");
         return r;
     }
 
@@ -74,7 +88,7 @@ public class Result {
         Result r = new Result();
         r.setSuccess(false);
         r.setCode(ResultCode.ERROR);
-        r.setMessage("用户不存在");
+        r.setMsg("用户不存在");
         return r;
     }
 

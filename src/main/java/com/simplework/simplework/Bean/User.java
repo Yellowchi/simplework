@@ -1,5 +1,6 @@
 package com.simplework.simplework.Bean;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,8 @@ import javax.persistence.Id;
 @Component
 public class User {
     @Id
+    @TableId
     private String user;
     private String password;
+    private boolean state;
 }

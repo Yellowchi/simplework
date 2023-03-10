@@ -2,9 +2,12 @@ package com.simplework.simplework.Mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.simplework.simplework.Bean.Stuinfo;
+import org.apache.ibatis.annotations.Select;
 
 public interface StuinfoMapper extends BaseMapper<Stuinfo> {
 
+    @Select("delete from stuinfo where stuid = #{stuid}")
+    public void deletebystuid(String stuid);
 //mybatis
 //    @Select("select * from stuinfo where stuid = #{stuid}")
 //    public Stuinfo findbystuid(int stuid);
