@@ -20,7 +20,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Stuinfo {
     @Id
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.INPUT,value = "stuid")
     @Column(name = "stuid")
     private String stuid;
     @Column(name = "password")

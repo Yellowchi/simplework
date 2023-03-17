@@ -1,6 +1,6 @@
 package com.simplework.simplework.Bean;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -11,30 +11,23 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
-@Table(name="bussinfo")
+@Table(name= "hist_request")
 @Data
 @ToString
 @Component
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-
-public class Bussinfo {
+public class HistRequest {
     @Id
-    @TableId
-    private String bussid;
-    private String password;
-    private String bussname;
-    private String bussinfo;
-    private String bussplace;
-    private String empname;
-    private int tel;
+    @TableId(value = "histrequestid",type = IdType.INPUT)
+    private Integer histrequestid;
+    @Column(name = "requestpath")
+    private String requestpath;
+    @Column(name = "sessionid")
+    private String sessionid;
+    @Column(name = "requestdate")
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date createdate;
-    @OneToMany
-    @TableField(exist = false)
-    private List<Job> jobs;
-
+    private Date requestdate;
 }

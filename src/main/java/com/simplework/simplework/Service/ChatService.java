@@ -1,7 +1,6 @@
 package com.simplework.simplework.Service;
 
 import com.simplework.simplework.Bean.Chat;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public interface ChatService {
      */
     List<Chat> findAllbysendidandtoid(String id1,String id2);
 
-    List<Chat> findallbytoid(String id);
+    List<Chat> findallbytoidtoitem(String id,String item);
 
-    List<Chat> findallbysendid(String id);
+    List<Chat> findallbysendidsenditem(String id,String item);
 }

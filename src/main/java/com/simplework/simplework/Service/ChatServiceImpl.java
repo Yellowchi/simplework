@@ -29,12 +29,12 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public List<Chat> findallbytoid(String id) {
-        return chatRepository.findByToid(id);
+    public List<Chat> findallbytoidtoitem(String id,String item) {
+        return chatRepository.findByToidAndToitem(id,item);
     }
 
     @Override
-    public List<Chat> findallbysendid(String id) {
-        return chatRepository.findBySendid(id);
+    public List<Chat> findallbysendidsenditem(String id,String item) {
+        return chatRepository.findBySendidAndSenditem(id,item);
     }
 }

@@ -1,5 +1,6 @@
 package com.simplework.simplework.Bean;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.ToString;
@@ -20,6 +21,7 @@ import java.sql.Time;
 public class Job {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
+    @TableId
     @Column(name="jobid")
     private int jobid;
     @Column(name = "bussid")

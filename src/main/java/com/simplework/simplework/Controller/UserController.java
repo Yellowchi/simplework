@@ -5,8 +5,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.simplework.simplework.Bean.*;
 import com.simplework.simplework.Mapper.*;
-import com.simplework.simplework.Repository.JobRepository;
-import com.simplework.simplework.Repository.UserRepository;
 import com.simplework.simplework.Utils.JwtUtils;
 import com.simplework.simplework.Utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("/api/user")
 public class UserController {
-    @Autowired
-    private UserRepository userRepository;
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -29,7 +25,7 @@ public class UserController {
     @Autowired
     private JobMapper jobMapper;
     @Autowired
-    private JobRepository jobRepository;
+    private HistRequestMapper histRequestMapper;
 
     @PostMapping("/login")
     public Result login(@RequestBody User user){
@@ -331,4 +327,22 @@ public class UserController {
         jobMapper.deletebyjobid(job.getJobid());
         return Result.ok();
     }
+    // histrequest
+    @GetMapping("histrequests")
+    public Result gethistrequest(@RequestParam(defaultValue = "1") int pagenum,@RequestParam(name = "quary") String quary){
+        Page<HistRequest> page = new Page(pagenum,10);
+        IPage<HistRequest> histrequests = new Page<>();
+        int total;
+        if(quary.isEmpty()){
+            histrequests = histRequestMapper.selectPage(page,null);
+            total = histRequestMapper.selectCount(null);
+        }else {
+            QueryWrapper queryWrapper = new QueryWrapper();
+            queryWrapper.like("requestpath",quary);
+            histrequests = histRequestMapper.selectPage(page,queryWrapper);
+            total = histRequestMapper.selectCount(queryWrapper);
+        }
+        return Result.ok().data("item",histrequests).data("total",total);
+    }
+
 }

@@ -13,10 +13,10 @@ import java.util.List;
 public class ChatController {
     @Resource
     private ChatService chatService;
-    @GetMapping("/getallaboutme/{id}")
-    public List<Chat> getallaboutme(@PathVariable("id")String id){
-        List<Chat> chatList1 = chatService.findallbytoid(id);
-        List<Chat> chatList2 = chatService.findallbysendid(id);
+    @GetMapping("/getallaboutme/{id}/{item}")
+    public List<Chat> getallaboutme(@PathVariable("id")String id,@PathVariable("item")String item){
+        List<Chat> chatList1 = chatService.findallbytoidtoitem(id,item);
+        List<Chat> chatList2 = chatService.findallbysendidsenditem(id,item);
         chatList1.addAll(chatList2);
         return chatList1;
     }

@@ -1,5 +1,7 @@
 package com.simplework.simplework.Bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.ToString;
@@ -23,6 +25,7 @@ import java.util.Date;
 public class Simpletalk {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @TableId(type = IdType.INPUT,value = "simpletalkid")
     private int simpletalkid;
     private String simpletalkname;
     @CreatedBy
