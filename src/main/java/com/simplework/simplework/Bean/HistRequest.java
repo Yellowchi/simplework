@@ -1,11 +1,12 @@
 package com.simplework.simplework.Bean;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.stereotype.Component;
 
@@ -26,8 +27,7 @@ public class HistRequest {
     private String requestpath;
     @Column(name = "sessionid")
     private String sessionid;
-    @Column(name = "requestdate")
-    @CreatedDate
+    @TableField(value = "requestdate" , fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date requestdate;
 }
